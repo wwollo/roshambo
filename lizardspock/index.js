@@ -3,7 +3,6 @@ const TIE = 'There was a tie.';
 const WIN = 'You win!';
 const LOSE = 'You lose!';
 const ERROR = 'Something went wrong.';
-const WRONG = 'Wrong game.'
 const INVALID = 'Invalid input. Try again.'
 
 // Listeners
@@ -24,9 +23,6 @@ document.getElementById('game').onclick = function () {
             break;
         case ERROR:
             output.innerHTML = `<p>${ERROR}</p>`;
-            break;
-        case WRONG:
-            output.innerHTML = `<p><a href="lizardspock/index.html">${WRONG}</a></p>`;
             break;
         default:
             output.innerHTML = `<p>${INVALID}</p>`;
@@ -58,13 +54,7 @@ document.getElementById('game5').onclick = function () {
 
     switch (true) {
         case Boolean(exit):
-            switch (true) {
-                case (exit == WRONG):
-                    output.innerHTML = `<p><a href="lizardspock/index.html">${WRONG}</a></p>`;
-                    break;
-                default:
-                    output.innerHTML = `<p>${exit}</p>`;
-            }
+            output.innerHTML = `<p>${exit}</p>`
             break;
         default:
             switch (true) {
@@ -82,7 +72,7 @@ document.getElementById('game5').onclick = function () {
 
 // Functions
 function computerPlay() {
-    let random = Math.floor(Math.random() * 3);
+    let random = Math.floor(Math.random() * 5);
 
     switch(random) {
         case 0:
@@ -93,6 +83,12 @@ function computerPlay() {
             break;
         case 2:
             return 'Scissors';
+            break;
+        case 3:
+            return 'Lizard';
+            break;
+        case 4:
+            return 'Spock';
             break;
         default:
             return ERROR;
@@ -115,6 +111,12 @@ function game() {
                 case 'Scissors':
                     result[2] = WIN;
                     break;
+                case 'Lizard':
+                    result[2] = WIN;
+                    break;
+                case 'Spock':
+                    result[2] = LOSE;
+                    break;
                 default:
                     result[2] = ERROR;
             }
@@ -130,6 +132,12 @@ function game() {
                     break;
                 case 'Scissors':
                     result[2] = LOSE;
+                    break;
+                case 'Lizard':
+                    result[2] = LOSE;
+                    break;
+                case 'Spock':
+                    result[2] = WIN;
                     break;
                 default:
                     result[2] = ERROR;
@@ -147,14 +155,59 @@ function game() {
                 case 'Scissors':
                     result[2] = TIE;
                     break;
+                case 'Lizard':
+                    result[2] = WIN;
+                    break;
+                case 'Spock':
+                    result[2] = LOSE;
+                    break;
                 default:
                     result[2] = ERROR;
             }
             return result;
             break;
         case 'Lizard':
+            switch (computerSelection) {
+                case 'Rock':
+                    result[2] = LOSE;
+                    break;
+                case 'Paper':
+                    result[2] = WIN;
+                    break;
+                case 'Scissors':
+                    result[2] = LOSE;
+                    break;
+                case 'Lizard':
+                    result[2] = TIE;
+                    break;
+                case 'Spock':
+                    result[2] = WIN;
+                    break;
+                default:
+                    result[2] = ERROR;
+            }
+            return result;
+            break;
         case 'Spock':
-            result[2] = WRONG;
+            switch (computerSelection) {
+                case 'Rock':
+                    result[2] = WIN;
+                    break;
+                case 'Paper':
+                    result[2] = LOSE;
+                    break;
+                case 'Scissors':
+                    result[2] = WIN;
+                    break;
+                case 'Lizard':
+                    result[2] = LOSE;
+                    break;
+                case 'Spock':
+                    result[2] = TIE;
+                    break;
+                default:
+                    result[2] = ERROR;
+            }
             return result;
             break;
         default:
