@@ -1,19 +1,81 @@
+<!-- Roshambo -->
+<!-- Copyright (C) William Wan 2021 -->
+<!-- Part of The Odin Project -->
+
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Rock, Paper, Scissors</title>
+        <title>Roshambo</title>
         <meta charset="UTF-8">
-        <script async type="text/javascript" src="index.js"></script>
+        <link href="/styles/reset.css" rel="stylesheet">
+        <link href="/styles/main.css" rel="stylesheet">
+        <script async type="text/javascript" src="/scripts/main.js"></script>
     </head>
     <body>
-        <div>
-            <h1>Rock, Paper, Scissors!</h1>
-            <p>Type in either "rock", "paper", or "scissors" to play a game.</p>
-            <input id="input" type="text">
-            <br>
-            <button id="game" type="button">Play Once!</button><button id="game5" type="button">Play 5 times!</button>
+        <div id="header">
+            <span class="difficulty">
+                <h2>Difficulty: </h2>
+                <input type="radio" id="easy" name="difficulty" value="easy">
+                <label for "easy">Easy</label>
+                <input type="radio" id="normal" name="difficulty" value="normal" checked>
+                <label for "normal">Normal</label>
+                <input type="radio" id="hard" name="difficulty" value="hard">
+                <label for "hard">Hard</label>
+                <input type="radio" id="impossible" name="difficulty" value="impossible">
+                <label for "impossible">Impossible</label>
+            </span>
+            <span class="dark-mode">
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+                <h2>Dark Mode</h2>
+            </span>
+            <span class="lizard-spock">
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+                <h2>???</h2>
+            </span>
         </div>
-        <br>
-        <div id="output"></div>
+        <div id="content">
+            <h1 class="title"></h1>
+            <p class="description"></p>
+            <span class="game">
+                <span class="button rock">
+                    <img src="/assets/rock.png" alt="Credit: DMacks (Wikimedia)">
+                    <p>Rock</p>
+                </span>
+                <span class="button paper">
+                    <img src="/assets/paper.png" alt="Credit: DMacks (Wikimedia)">
+                    <p>Paper</p>
+                </span>
+                <span class="button scissors">
+                    <img src="/assets/scissors.png" alt="Credit: DMacks (Wikimedia)">
+                    <p>Scissors</p>
+                </span>
+                <span class="button lizard hidden">
+                    <img src="/assets/lizard.png" alt="Credit: DMacks (Wikimedia)">
+                    <p>Lizard</p>
+                </span>
+                <span class="button Spock hidden">
+                    <img src="/assets/spock.png" alt="Credit: DMacks (Wikimedia)">
+                    <p>Spock</p>
+                </span>
+            </span>
+        </div>
+        <div id="result"></div>
+        <div id="results">
+            <ul>
+                <li class="wins"></li>
+                <li class="losses"></li>
+                <li class="ties"></li>
+                <li><button class="reset">Reset</button></li>
+            </ul>
+        </div>
     </body>
+    <footer>
+        <p>Copyright &#169; William Wan 2021</p>
+    </footer>
 </html>
